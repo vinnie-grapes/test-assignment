@@ -1,0 +1,22 @@
+{
+  "name": "playwright-draft",
+  "version": "1.0.0",
+  "description": "playwright-draft yodd dfsdfsdfsdf",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "lint": "npx eslint . --ext=ts",
+    "format": "npx prettier . --write"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.39.0",
+    "@types/node": "^20.9.0",
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "@typescript-eslint/parser": "^6.10.0",
+    "eslint": "^8.53.0",
+    "prettier": "3.0.3"
+  }
+}
