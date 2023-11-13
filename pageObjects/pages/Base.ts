@@ -1,9 +1,12 @@
-import { type Page } from "@playwright/test";
-import { test } from "@fixtures";
+import { test, type Page } from "@fixtures";
+import { NavBar } from "@components/NavBar";
 
 export class Base {
+  readonly navBar: NavBar;
+
   constructor(public page: Page) {
     this.page = page;
+    this.navBar = new NavBar(page);
   }
 
   async navigatePage({ page = this.page, url }: { page?: Page; url: string }) {

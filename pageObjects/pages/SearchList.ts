@@ -1,15 +1,8 @@
-import { Page, expect } from "@playwright/test";
-import { Base } from "../Base";
-import { NavBar } from "@components/NavBar";
+import { expect } from "@fixtures";
+import { Base } from "@pages/Base";
 
 export class SearchList extends Base {
-  readonly navBar: NavBar;
-
-  constructor(public page: Page) {
-    super(page);
-    this.page = page;
-    this.navBar = new NavBar(page);
-  }
+  readonly videoElementLocator = ".grid>div[data-el-id]";
 
   async checkSearchTitle(request: string) {
     const searchTitle = request.toLowerCase();
@@ -19,8 +12,9 @@ export class SearchList extends Base {
   }
 
   async checkSearchResult(opts: { resultsCount: number }) {
-    const menuLinks = await this.page.$$eval(".grid>div[data-el-id]", (links) =>
-      links.map((link) => link.getAttribute("data-el-id")),
+    const menuLinks = await this.page.$$eval(
+      this.videoElementLocator,
+      (links) => links.map((link) => link.getAttribute("data-el-id")),
     );
     const uniqueMenuLinks = new Set(menuLinks);
     expect(uniqueMenuLinks.size, {

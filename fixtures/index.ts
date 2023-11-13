@@ -1,4 +1,4 @@
-import { test as base, expect } from "@playwright/test";
+import { test as base, expect, Page } from "@playwright/test";
 import { Home } from "@pages/Home";
 import { SearchList } from "@pages/SearchList";
 
@@ -20,4 +20,4 @@ export const test = base.extend<webFixtures>({
   },
 });
 
-export { expect };
+export { expect, Page };
